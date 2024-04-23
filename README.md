@@ -1,8 +1,24 @@
-# React + Vite
+<!-- PROJECT LOGO -->
+<br />
+<h1 align="center">JamesWaniwan | Portfolio</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- ABOUT THE PROJECT -->
 
-Currently, two official plugins are available:
+## About The Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot](./public/portfolio-home.png)
+
+<p align="center">
+Welcome to my portfolio! Feel free to explore my portfolio and discover the projects I've worked on. Thank you for visiting.
+
+<!-- TECHNOLOGY USED -->
+
+## 💻 Technology Used
+
+- **React**: React is a JavaScript library for building user interfaces, offering a declarative approach to creating reusable UI components.
+
+<!-- LIVE DEMO -->
+
+## 🎮 Live Demo
+
+[https://jameswaniwan.vercel.app/](https://jameswaniwan.vercel.app/)
