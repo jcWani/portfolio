@@ -16,6 +16,7 @@ Welcome to my portfolio! Feel free to explore my portfolio and discover the proj
 ## 💻 Technology Used
 
 - **React**: React is a JavaScript library for building user interfaces, offering a declarative approach to creating reusable UI components.
+- **Tailwind CSS**: Tailwind CSS is a utility-first CSS framework that provides pre-defined utility classes for building responsive and customizable user interfaces directly within HTML markup.
 
 <!-- LIVE DEMO -->
 
