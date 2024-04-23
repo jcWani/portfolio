@@ -26,7 +26,7 @@ function Hero() {
       strings: ["Aspiring Something something?"],
       showCursor: false,
       typeSpeed: 70,
-      startDelay: 20,
+      startDelay: 2000,
     });
 
     // Destropying
