@@ -1,10 +1,11 @@
-import Button from "../ui/Button";
+import { useEffect, useRef } from "react";
+import { useAOS } from "../hooks/useAos";
+import Typed from "typed.js";
+
 import { socialLinks } from "../constants";
 import { heroImg } from "../assets/images";
-import { useRef } from "react";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-import { useTyped } from "../hooks/useTyped";
-import { useAOS } from "../hooks/useAos";
+import Button from "../ui/Button";
 
 function Hero() {
   const ref = useRef(null);
@@ -18,8 +19,21 @@ function Hero() {
   if (!heroSecIsIntersecting) document.body.classList.add("stick");
   else document.body.classList.remove("stick");
 
-  useTyped(typeRef);
   const { AOS } = useAOS();
+
+  useEffect(() => {
+    const typed = new Typed(typeRef.current, {
+      strings: ["Aspiring Something something?"],
+      showCursor: false,
+      typeSpeed: 70,
+      startDelay: 20,
+    });
+
+    // Destropying
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   return (
     <section
