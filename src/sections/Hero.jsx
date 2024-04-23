@@ -48,7 +48,7 @@ function Hero() {
             <span className="font-bold text-primary">James</span>
           </h1>
           <p className="whitespace-nowrap text-2xl font-medium leading-normal tracking-tight text-black-700 max-[500px]:text-xl max-[320px]:text-lg md:text-3xl xl:text-3xl">
-            <span ref={typeRef}>Aspiring Something something?</span>
+            <span ref={typeRef}></span>
           </p>
 
           <ul className="mt-4 flex list-none items-center justify-center gap-3 first:rounded-full lg:mt-8 lg:justify-start">
