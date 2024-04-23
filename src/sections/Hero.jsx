@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useAOS } from "../hooks/useAos";
-import Typed from "typed.js";
 
 import { socialLinks } from "../constants";
 import { heroImg } from "../assets/images";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import Button from "../ui/Button";
+import { useTyped } from "../hooks/useTyped";
 
 function Hero() {
   const ref = useRef(null);
@@ -20,20 +20,7 @@ function Hero() {
   else document.body.classList.remove("stick");
 
   const { AOS } = useAOS();
-
-  useEffect(() => {
-    const typed = new Typed(typeRef.current, {
-      strings: ["Aspiring Something something?"],
-      showCursor: false,
-      typeSpeed: 70,
-      startDelay: 2000,
-    });
-
-    // Destropying
-    return () => {
-      typed.destroy();
-    };
-  }, []);
+  useTyped(typeRef);
 
   return (
     <section
