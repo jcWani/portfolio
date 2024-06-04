@@ -8,7 +8,7 @@ export function useTyped(ref) {
     }
 
     const typed = new Typed(ref.current, {
-      strings: ["Aspiring Something something?"],
+      strings: ["Aspiring front-end developer"],
       showCursor: false,
       typeSpeed: 70,
       startDelay: 20,
