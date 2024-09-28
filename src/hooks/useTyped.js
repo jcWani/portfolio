@@ -10,8 +10,8 @@ export function useTyped(ref) {
     const typed = new Typed(ref.current, {
       strings: ["Aspiring front-end developer"],
       showCursor: false,
-      typeSpeed: 70,
-      startDelay: 20,
+      typeSpeed: 60,
+      startDelay: 600,
     });
 
     return () => {

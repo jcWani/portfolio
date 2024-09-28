@@ -12,6 +12,10 @@ import {
   cssIcon,
   javascriptIcon,
   reactIcon,
+  nextjsIcon,
+  typescriptIcon,
+  supabaseIcon,
+  unityIcon,
   gitIcon,
 } from "../assets/icons";
 
@@ -63,8 +67,24 @@ export const skills = [
     icon: tailwindIcon,
   },
   {
+    label: "Next.js",
+    icon: nextjsIcon,
+  },
+  {
+    label: "Typescript",
+    icon: typescriptIcon,
+  },
+  {
+    label: "Supabase",
+    icon: supabaseIcon,
+  },
+  {
     label: "Git",
     icon: gitIcon,
+  },
+  {
+    label: "Unity",
+    icon: unityIcon,
   },
 ];
 

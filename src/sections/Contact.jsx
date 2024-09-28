@@ -6,8 +6,8 @@ function Contact() {
     <section id="contact" className="py-28 dark:bg-[#0d192b]">
       <div className="container flex justify-center max-[360px]:px-[16px]">
         <div
-          className="rounded-3x grid max-w-sm grid-cols-1 gap-6 
-        overflow-hidden rounded-3xl border-t-4 border-primary shadow-lg md:max-w-3xl md:grid-cols-2 md:gap-0 lg:max-w-4xl dark:bg-[#14253d]"
+          className="grid max-w-sm grid-cols-1 gap-6 
+        overflow-hidden rounded-xl border-t-4 border-primary shadow-lg md:max-w-3xl md:grid-cols-2 md:gap-0 lg:max-w-4xl dark:bg-[#14253d]"
           data-aos="fade-up"
         >
           <div className="flex flex-col items-center justify-center pb-8 md:pb-0">

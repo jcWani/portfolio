@@ -1,21 +1,21 @@
-import heroImg from "./hero.png";
-import aboutImg from "./about.png";
-import wayfarersRestImg from "./wayfarers-rest.png";
-import wayfarersRestLogo from "./wayfarers-rest-logo.png";
-import crustAndCraftImg from "./crust-craft.png";
-import crustAndCraftLogo from "./crustandcraft-logo.png";
-import travelSnapImg from "./travelsnap.png";
-import travelSnapLogo from "./travelsnap-logo.png";
-import contactImg from "./contact.png";
+import heroImg from "./hero.webp";
+import aboutImg from "./about.webp";
+import wayfarersRestWebsiteImg from "./wayfarers-rest-website.webp";
+import wayfarersRestImg from "./wayfarers-rest.webp";
+import crustAndCraftImg from "./crust-craft.webp";
+import travelSnapImg from "./travelsnap.webp";
+import paystationImg from "./paystation.webp";
+import mathrunImg from "./mathrun.webp";
+import contactImg from "./contact.webp";
 
 export {
   heroImg,
   aboutImg,
-  wayfarersRestImg,
-  wayfarersRestLogo,
-  crustAndCraftImg,
-  crustAndCraftLogo,
-  travelSnapImg,
-  travelSnapLogo,
   contactImg,
+  wayfarersRestWebsiteImg,
+  wayfarersRestImg,
+  crustAndCraftImg,
+  travelSnapImg,
+  paystationImg,
+  mathrunImg,
 };

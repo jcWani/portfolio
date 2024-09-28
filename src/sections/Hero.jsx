@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { useAOS } from "../hooks/useAos";
-
-import { socialLinks } from "../constants";
-import { heroImg } from "../assets/images";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-import Button from "../ui/Button";
 import { useTyped } from "../hooks/useTyped";
+
+import { heroImg } from "../assets/images";
+import { socialLinks } from "../constants";
+
+import Button from "../ui/Button";
 
 function Hero() {
   const ref = useRef(null);
@@ -26,9 +27,9 @@ function Hero() {
     <section
       id="home"
       ref={ref}
-      className="flex min-h-[calc(100vh-96px)] items-center justify-center dark:bg-[#0a192f]"
+      className="relative flex min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden dark:bg-[#0a192f]"
     >
-      <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
+      <div className="container z-20 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
         <div className="text-center lg:text-start" data-aos="fade-right">
           <h1 className="whitespace-nowrap text-5xl font-bold leading-normal tracking-tight max-[500px]:text-4xl max-[320px]:text-3xl md:mb-2 md:text-6xl lg:mb-4 xl:text-7xl">
             Hello! I&apos;m{" "}
@@ -84,6 +85,13 @@ function Hero() {
             className="border-animated w-[70%] md:w-[50%] lg:w-full xl:w-[90%]"
           />
         </div>
+      </div>
+
+      <div className="absolute inset-5">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
       </div>
     </section>
   );

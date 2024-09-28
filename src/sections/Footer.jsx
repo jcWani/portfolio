@@ -4,8 +4,8 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary py-10 dark:bg-[#112240]">
-      <div className="container space-y-2 text-center text-sm leading-normal text-white dark:text-slate-200">
+    <footer className="bg-neutral-900 py-4 dark:bg-[#112240]">
+      <div className="container space-y-1 text-center text-xs leading-normal text-white dark:text-slate-200">
         <ul className="flex list-none items-center justify-center gap-1.5">
           {socialLinks.map((social) => (
             <li key={social.label} className="focus:ring-0">
@@ -15,7 +15,7 @@ function Footer() {
                 target="_blank"
                 className="focus:outline-primary/55 focus:ring-0"
               >
-                <social.icon className="text-3xl text-white transition-all duration-300 hover:scale-125 active:scale-110 dark:text-slate-200" />
+                <social.icon className="text-2xl text-white transition-all duration-300 hover:scale-125 active:scale-110 dark:text-slate-200" />
               </a>
             </li>
           ))}

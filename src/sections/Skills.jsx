@@ -39,20 +39,15 @@ function Skills() {
         </div>
 
         <ul
-          className="grid list-none grid-cols-2 gap-x-4 gap-y-6 px-10 max-[375px]:px-2 sm:grid-cols-3 sm:px-20 md:px-0 md:py-4 lg:px-7 lg:py-7 xl:px-20 xl:py-20"
+          className="grid list-none items-center justify-items-center gap-y-4 max-[320px]:grid-cols-2 min-[320px]:grid-cols-3 min-[320px]:gap-y-8  min-[500px]:grid-cols-4 sm:grid-cols-5 sm:gap-y-10 md:grid-cols-4 md:gap-y-2 lg:grid-cols-4 lg:gap-y-6"
           data-aos="fade-left"
         >
           {skills.map((skill) => (
             <li
               key={skill.label}
-              className="flex flex-col 
-              items-center justify-center gap-2 rounded-xl border-t-4 border-t-primary bg-white py-5 shadow-lg transition-all duration-300 md:py-2.5 dark:bg-[#14253d]"
+              className="flex w-20 flex-col items-center justify-center gap-3 transition-all duration-300 md:py-2.5"
             >
-              <img
-                src={skill.icon}
-                alt={skill.label}
-                className="h-12 w-12 max-[375px]:h-10 max-[375px]:w-10"
-              />
+              <img src={skill.icon} alt={skill.label} className="h-12 w-12" />
               <span className="font-medium">{skill.label}</span>
             </li>
           ))}
