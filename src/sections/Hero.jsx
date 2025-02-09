@@ -46,6 +46,7 @@ export default function Hero() {
             </Button>
             <Button
               className="tracking-wide lg:gap-3 lg:px-6 lg:py-3 lg:text-lg"
+              href="#contact"
               color="secondary"
             >
               Contacts
