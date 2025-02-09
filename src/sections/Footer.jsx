@@ -1,33 +1,16 @@
-import { socialLinks } from "../constants";
+import { IoThumbsUp } from "react-icons/io5";
 
-function Footer() {
-  const currentYear = new Date().getFullYear();
-
+export default function Footer() {
   return (
-    <footer className="bg-neutral-900 py-4 dark:bg-[#112240]">
-      <div className="container space-y-1 text-center text-xs leading-normal text-white dark:text-slate-200">
-        <ul className="flex list-none items-center justify-center gap-1.5">
-          {socialLinks.map((social) => (
-            <li key={social.label} className="focus:ring-0">
-              <a
-                rel="noreferrer"
-                href={social.href}
-                target="_blank"
-                className="focus:outline-primary/55 focus:ring-0"
-              >
-                <social.icon className="text-2xl text-white transition-all duration-300 hover:scale-125 active:scale-110 dark:text-slate-200" />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <p className="leading-normal">James Christoper C. Waniwan</p>
-        <p className="leading-normal">
-          Copyright &copy; {currentYear}. All Rights Reserved.
-        </p>
+    <footer className="bg-gray-100 px-4 py-8 dark:bg-[#112240]">
+      <div className="mx-auto flex max-w-4xl justify-center">
+        <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+          <span>
+            © {new Date().getFullYear()} James Waniwan. All rights reserved.
+          </span>
+          <IoThumbsUp className="inline h-4 w-4" />
+        </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;

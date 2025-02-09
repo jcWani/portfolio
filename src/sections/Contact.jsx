@@ -1,44 +1,71 @@
-import { contacts } from "../constants";
-import { contactImg } from "../assets/images";
+import { socialLinks, contacts } from "../constants";
+import { useAOS } from "../hooks/useAos";
 
-function Contact() {
+export default function Contact() {
+  const { AOS } = useAOS();
+
   return (
-    <section id="contact" className="py-28 dark:bg-[#0d192b]">
-      <div className="container flex justify-center max-[360px]:px-[16px]">
-        <div
-          className="grid max-w-sm grid-cols-1 gap-6 
-        overflow-hidden rounded-xl border-t-4 border-primary shadow-lg md:max-w-3xl md:grid-cols-2 md:gap-0 lg:max-w-4xl dark:bg-[#14253d]"
-          data-aos="fade-up"
-        >
-          <div className="flex flex-col items-center justify-center pb-8 md:pb-0">
-            <span className="subheading">Get in touch</span>
-            <h2 className="heading-secondary mb-3 lg:mb-6">Contact Me</h2>
+    <section id="contact" className="px-4 py-28 dark:bg-[#0a192f]">
+      <div className="mx-auto max-w-2xl" data-aos="fade-up">
+        {/* Header */}
+        <div className="mb-10 text-center">
+          <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+            Contact Me
+          </span>
+          <h2 className="mb-8 mt-2 text-4xl font-bold dark:text-white">
+            Let&apos;s connect
+          </h2>
+        </div>
 
-            <ul className="list-none space-y-3">
-              {contacts.map((contact) => (
-                <li key={contact.link}>
+        {/* Contact Card */}
+        <div className="relative">
+          {/* Content */}
+          <div className="relative rounded-2xl border border-gray-100 bg-white p-8 shadow-xl dark:border-[#112240]/90 dark:bg-[#112240]">
+            <div className="grid items-center gap-8">
+              {/* Main Contact */}
+              <div className="flex flex-col gap-6 sm:flex-row">
+                {contacts.map((contact) => (
                   <a
+                    key={contact.link}
                     href={contact.href}
-                    className="flex items-center gap-2 focus:outline focus:outline-primary/55 focus:ring-0 max-[360px]:gap-1"
+                    className="group flex items-center gap-4 text-gray-700 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/80 focus-visible:ring-offset-2 dark:text-gray-300 dark:hover:text-primary"
                   >
-                    <contact.icon className="text-2xl text-primary transition-colors duration-300 hover:text-primary-dark max-[400px]:text-xl max-[360px]:text-lg" />
-                    <span className="text-lg font-medium text-black-600 decoration-black-500 underline-offset-[10px] transition-all duration-300 hover:text-black-500 hover:underline max-[400px]:text-base max-[360px]:text-sm">
-                      {contact.link}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 transition-colors group-hover:bg-blue-100 dark:bg-[#0a192f] dark:group-hover:bg-primary/10">
+                      <contact.icon className="h-5 w-5 text-primary" />
+                    </span>
+                    <div>
+                      <p className="font-medium">{contact.label}</p>
+                      <p className="text-sm  text-gray-500 dark:text-gray-400">
+                        {contact.link}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-3 gap-4">
+                {/* Social Links */}
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex flex-col items-center gap-2 rounded-xl bg-gray-50 p-4 transition-all duration-300 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/80 focus-visible:ring-offset-2 dark:bg-[#0a192f] dark:hover:bg-primary/20"
+                  >
+                    <span className="rounded-lg bg-white p-3 shadow-sm transition-all duration-300 group-hover:scale-110 dark:bg-[#112240]">
+                      <link.icon className="h-6 w-6 text-gray-700 group-hover:text-primary dark:text-gray-300" />
+                    </span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {link.label}
                     </span>
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative order-first md:order-last">
-            <img src={contactImg} alt="Men illustration" className="w-full" />
-            <div className="absolute inset-0 w-full bg-contact-overlay dark:bg-contact-overlay-dark"></div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-export default Contact;

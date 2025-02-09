@@ -1,41 +1,58 @@
-function Button({
-  children,
-  type,
-  href,
-  onClick,
-  width,
-  target,
-  icon,
-  letterSpacing,
-}) {
-  const base = `inline-block text-sm rounded-xl font-semibold uppercase text-black-50 transition-all duration-300 focus:text-zinc-600 focus:bg-primary-light focus:outline-none focus:ring focus:ring-primary-light focus:border-primary-light focus:ring-offset-2 disabled:cursor-not-allowed border-2 py-3 bg-primary border-primary hover:bg-primary-dark hover:border-primary-dark dark:text-[#14253d] ${letterSpacing ? letterSpacing : ""} max-[500px]:py-2.5 max-[500px]:text-xs`;
+"use client";
 
-  const styles = {
-    primary: base + ` ${width ? `${width}` : ""}`,
-    secondary:
-      base +
-      ` bg-zinc-800 hover:bg-transparent hover:text-zinc-800 border-zinc-800 hover:border-zinc-800 dark:bg-slate-200 dark:text-[#0a192f] dark:border-slate-200 dark:hover:text-slate-200 dark:hover:border-slate-200 ${width ? `${width}` : ""} dark:focus:hover:text-zinc-600 dark:focus:hover:border-primary-light`,
+export function Button({
+  variant = "solid",
+  size = "md",
+  color = "primary",
+  icon,
+  className,
+  fullWidth,
+  children,
+  href,
+}) {
+  // Base styles that are always applied
+  const baseStyles =
+    "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 duration-300 ease-in-out focus-visible:ring-primary/80";
+
+  // Variant styles
+  const variantStyles = {
+    solid: {
+      primary:
+        "bg-primary text-white hover:bg-primary-dark dark:text-[#0a192f] dark:focus:bg-primary-light",
+      secondary:
+        "bg-zinc-900 text-white hover:bg-gray-700 dark:bg-white dark:text-[#0a192f] dark:hover:bg-gray-300",
+    },
   };
 
-  if (onClick)
-    return (
-      <button className={styles[type]} onClick={onClick}>
-        {children}
-      </button>
-    );
+  // Size styles
+  const sizeStyles = {
+    sm: "text-sm px-3 py-1.5 gap-1.5",
+    md: "text-base px-4 py-2 gap-2",
+    lg: "text-lg px-6 py-3 gap-3",
+  };
 
-  if (href) {
+  // Width styles
+  const widthStyles = fullWidth ? "w-full" : "w-auto";
+
+  if (href)
     return (
-      <a className={styles[type]} href={href} rel="noreferrer" target={target}>
-        <div className="flex items-center justify-center gap-2">
-          {icon}
-          {children}
-        </div>
+      <a
+        className={`${baseStyles} ${variantStyles[variant][color]} ${sizeStyles[size]} ${widthStyles} ${className}`}
+        href={href}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {icon && icon}
+        <span>{children}</span>
       </a>
     );
-  }
 
-  return <button className={styles[type]}>{children}</button>;
+  return (
+    <button
+      className={`${baseStyles} ${variantStyles[variant][color]} ${sizeStyles[size]} ${widthStyles} ${className}`}
+    >
+      {icon && icon}
+      <span>{children}</span>
+    </button>
+  );
 }
-
-export default Button;

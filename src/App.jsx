@@ -11,11 +11,13 @@ import { DarkModeProvider } from "./contexts/DarkModeContext";
 function App() {
   return (
     <DarkModeProvider>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
       <main className="relative">
         <Hero />
-        <AboutMe />
         <Skills />
+        <AboutMe />
         <Projects />
         <Contact />
       </main>

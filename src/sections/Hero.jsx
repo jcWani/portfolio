@@ -1,100 +1,73 @@
-import { useRef } from "react";
-import { useAOS } from "../hooks/useAos";
-import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-import { useTyped } from "../hooks/useTyped";
-
 import { heroImg } from "../assets/images";
 import { socialLinks } from "../constants";
+import { useAOS } from "../hooks/useAos";
+import { Button } from "../ui/Button";
+import { IoDownloadOutline } from "react-icons/io5";
 
-import Button from "../ui/Button";
-
-function Hero() {
-  const ref = useRef(null);
-  const typeRef = useRef(null);
-  const heroSecIsIntersecting = useIntersectionObserver(ref, {
-    root: null,
-    threshold: 0,
-    rootMargin: `-86px`,
-  });
-
-  if (!heroSecIsIntersecting) document.body.classList.add("stick");
-  else document.body.classList.remove("stick");
-
+export default function Hero() {
   const { AOS } = useAOS();
-  useTyped(typeRef);
 
   return (
     <section
       id="home"
-      ref={ref}
-      className="relative flex min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden dark:bg-[#0a192f]"
+      className="relative flex min-h-screen items-center overflow-hidden px-8 py-20 dark:bg-[#0a192f]"
     >
-      <div className="container z-20 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
-        <div className="text-center lg:text-start" data-aos="fade-right">
-          <h1 className="whitespace-nowrap text-5xl font-bold leading-normal tracking-tight max-[500px]:text-4xl max-[320px]:text-3xl md:mb-2 md:text-6xl lg:mb-4 xl:text-7xl">
-            Hello! I&apos;m{" "}
-            <span className="font-bold text-primary">James</span>
-          </h1>
-          <p className="whitespace-nowrap text-2xl font-medium leading-normal tracking-tight text-black-700 max-[500px]:text-xl max-[320px]:text-lg md:text-3xl xl:text-3xl">
-            <span ref={typeRef}></span>
-          </p>
+      <div className="mx-auto grid max-w-8xl items-center justify-items-center gap-12 md:grid-cols-2">
+        <div className="z-20 text-center md:text-start" data-aos="fade-right">
+          <div className="mb-8">
+            <h1 className="text-4xl font-normal md:text-6xl dark:text-white">
+              Hello I&apos;m{" "}
+              <span className="font-bold text-primary">James Waniwan</span>
+            </h1>
+          </div>
 
-          <ul className="mt-4 flex list-none items-center justify-center gap-3 first:rounded-full lg:mt-8 lg:justify-start">
+          <ul className="mb-2 flex justify-center gap-4 md:mb-4 md:justify-start">
             {socialLinks.map((social) => (
               <li key={social.label}>
                 <a
-                  rel="noreferrer"
                   href={social.href}
+                  rel="noopener noreferrer"
                   target="_blank"
-                  className="focus:outline-primary/55 focus:ring-0 dark:focus:outline-primary"
+                  className="inline-block text-primary transition-all duration-300 ease-in-out hover:scale-125 focus:outline-primary/80 focus:ring-0 dark:focus:outline-primary"
                 >
-                  <social.icon
-                    className={`text-4xl text-primary transition-all duration-300 hover:scale-125 active:scale-110 md:text-5xl`}
-                  />
+                  <social.icon className="h-auto w-10 lg:w-12" />
                 </a>
               </li>
             ))}
           </ul>
 
-          <div className="mt-5 space-x-3 max-[370px]:flex max-[370px]:flex-col max-[370px]:items-center max-[370px]:justify-center max-[370px]:gap-2 max-[370px]:space-x-0">
+          <div className="flex items-center justify-center gap-2 md:justify-start lg:gap-4">
             <Button
-              type="primary"
+              icon={<IoDownloadOutline />}
               href="/resume-james-waniwan.pdf"
-              target="_blank"
-              width="w-[30%] md:w-[20%] lg:w-[37%] xl:w-[30%] max-[500px]:w-[35%] max-[370px]:w-[50%]"
-              letterSpacing="lg:tracking-widest"
+              className="tracking-wide lg:gap-3 lg:px-6 lg:py-3 lg:text-lg"
             >
-              Download CV
+              Resume
             </Button>
             <Button
-              type="secondary"
-              href="#contact"
-              width="w-[30%] md:w-[20%] lg:w-[37%] xl:w-[30%] max-[500px]:w-[35%] max-[370px]:w-[50%]"
-              letterSpacing="lg:tracking-widest"
-              target="_self"
+              className="tracking-wide lg:gap-3 lg:px-6 lg:py-3 lg:text-lg"
+              color="secondary"
             >
-              Contact
+              Contacts
             </Button>
           </div>
         </div>
 
-        <div className="flex items-center justify-center" data-aos="fade-left">
+        <div className="relative z-20" data-aos="fade-left">
           <img
             src={heroImg}
             alt="hero image"
-            className="border-animated w-[70%] md:w-[50%] lg:w-full xl:w-[90%]"
+            className="border-animated max-w-sm lg:max-w-full"
           />
         </div>
-      </div>
 
-      <div className="absolute inset-5">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        <div id="stars4"></div>
+        <div className="absolute inset-5">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+          <div id="stars4"></div>
+        </div>
       </div>
     </section>
   );
 }
-
-export default Hero;

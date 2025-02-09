@@ -18,22 +18,11 @@
     border 0.3s;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 :root {
   --primary-lighter: 219, 227, 254;
   --primary-light: 191, 206, 254;
   --primary: 30, 64, 175;
   --primary-dark: 30, 55, 138;
-
-  --black-50: 250, 250, 250;
-  --black-300: 212, 212, 216;
-  --black-500: 113, 113, 122;
-  --black-600: 82, 82, 91;
-  --black-700: 63, 63, 70;
-  --black-800: 39, 39, 42;
 
   --border-gradient-1: #88d5bf;
   --border-gradient-2: #5d6bf8;
@@ -66,13 +55,6 @@ html {
   --primary: 0, 255, 247;
   --primary-dark: 0, 226, 220;
 
-  --black-50: 226, 232, 240;
-  --black-300: 226, 232, 240;
-  --black-500: 226, 232, 240;
-  --black-600: 226, 232, 240;
-  --black-700: 226, 232, 240;
-  --black-800: 226, 232, 240;
-
   --border-gradient-1: #00fff7;
   --border-gradient-2: #00fff7;
   --border-gradient-3: #00fff7;
@@ -99,32 +81,6 @@ html {
 }
 
 @layer components {
-  .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .heading-secondary {
-    @apply mt-2 text-4xl font-bold leading-normal tracking-tight text-black-800 max-[400px]:text-3xl lg:text-5xl;
-  }
-
-  .heading-tertiary {
-    @apply mt-2 text-3xl font-semibold leading-normal text-black-800 max-[400px]:text-2xl lg:text-4xl;
-  }
-
-  .subheading {
-    @apply text-sm font-semibold uppercase leading-tight tracking-widest text-primary lg:text-base;
-  }
-
-  .stick header {
-    @apply fixed bottom-0 top-0 z-50 h-20 w-full bg-[rgba(255,255,255,0.97)] pb-0 pt-0 shadow-navsw dark:bg-[rgb(10,25,47,0.97)];
-  }
-
-  .stick #home {
-    @apply mt-[96px];
-  }
-
   #home::before,
   #home::after {
     content: "";
@@ -218,45 +174,6 @@ html {
         var(--border-gradient-1) 0%,
         var(--border-gradient-2) 100%
       );
-    }
-  }
-
-  .custom-shape-divider-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-  }
-
-  .custom-shape-divider-bottom svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 120px;
-  }
-
-  .custom-shape-divider-bottom .shape-fill {
-    fill: #ffffff;
-    transition: all 0.3s;
-  }
-
-  .dark .custom-shape-divider-bottom .shape-fill {
-    fill: #0a192f;
-  }
-
-  .rotate {
-    animation: rotation 10s infinite linear;
-  }
-
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
     }
   }
 

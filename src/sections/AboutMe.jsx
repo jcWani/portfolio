@@ -1,55 +1,56 @@
-import { aboutImg } from "../assets/images";
+import { IoSchool } from "react-icons/io5";
+import { contactImg } from "../assets/images";
 import { useAOS } from "../hooks/useAos";
-import Divider from "../ui/Divider";
 
-function AboutMe() {
+export default function AboutMe() {
   const { AOS } = useAOS();
 
   return (
     <section
       id="about"
-      className="relative bg-primary-lighter pb-28 pt-32 dark:bg-[#112240]"
+      className="border-b border-[#ddd] px-4 py-28 md:px-8 dark:border-[#0a192f] dark:bg-[#0a192f]"
     >
-      <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0 lg:pb-12">
-        <div className="flex items-center justify-center">
-          <img
-            src={aboutImg}
-            alt="about me image"
-            className="w-[90%] sm:w-[70%] md:w-[50%] lg:w-full xl:w-[90%]"
-            data-aos="fade-right"
-          />
-        </div>
+      <div className="mx-auto max-w-6xl" data-aos="fade-up">
+        <div className="grid items-center gap-12 md:grid-cols-2 lg:gap-0">
+          {/* Image Container */}
+          <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-full border-4 border-primary/80">
+            <img src={contactImg} className="h-full w-full object-cover" />
+            {/* <div className="absolute inset-0 bg-contact-overlay"></div> */}
+          </div>
 
-        <div data-aos="fade-left">
-          <span className="subheading">Get to know more</span>
-          <h2 className="heading-secondary">About Me</h2>
-          <div className="mt-5 space-y-4 text-black-600">
-            <p className="leading-relaxed">
-              Hello there! I&apos;m <span className="font-bold">James</span>, an
-              aspiring front-end web developer with a passion for creating
-              beautiful and functional web experiences. I enjoy designing and
-              building things on the internet.
-            </p>
-            <p className="leading-relaxed">
-              I took a break after I graduated, and was unsure of what career
-              path I would take. I only scratched the surface of development
-              during my time in college, but now I find myself fascinated by the
-              things you can build with it. Exploring front-end development has
-              been an continuous learning journey for me.
-            </p>
-            <p className="pb-8 leading-relaxed md:pb-14 lg:pb-0">
-              Outside of coding, you&apos;ll often find me indulging in video
-              games, going for a jog around our neighborhood, or getting lost in
-              the pages of a good book. I believe in maintaining a healthy
-              work-life balance and finding inspiration around us.
-            </p>
+          {/* Content Container */}
+          <div className="space-y-6">
+            <div className="mb-8">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Get to know more
+              </span>
+              <h2 className="mb-8 mt-2 text-4xl font-bold dark:text-white">
+                About Me
+              </h2>
+            </div>
+
+            <div className="space-y-6 leading-relaxed text-gray-600 dark:text-gray-300">
+              <p>
+                Hello! I&apos;m James, an aspiring front-end web developer with
+                a passion for creating beautiful and functional web experiences.
+                I enjoy designing and building things on the internet. I took a
+                break after I graduated, and was unsure of what career path I
+                would take. Now I find myself fascinated by the things you can
+                make on the browser. Exploring front-end development has been an
+                continuous learning journey for me.
+              </p>
+
+              <div className="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+                <IoSchool className="h-10 w-10 text-primary" />
+                <span>
+                  BS Mathematics with specialization in Computer Science from
+                  Bulacan State university
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <Divider />
     </section>
   );
 }
-
-export default AboutMe;

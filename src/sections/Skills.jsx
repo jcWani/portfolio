@@ -1,60 +1,40 @@
-import Lottie from "lottie-react";
-import animationData from "../assets/lottie/coding.json";
-import animationDataDark from "../assets/lottie/coding-dark.json";
-import { useDarkMode } from "../contexts/DarkModeContext";
-
 import { skills } from "../constants";
-import { useAOS } from "../hooks/useAos";
 
-function Skills() {
-  const { isDarkMode } = useDarkMode();
-  const { AOS } = useAOS();
-
+export default function Skills() {
   return (
     <section
       id="skills"
-      className="border-b border-[#ddd] py-28 dark:border-[#0d192b] dark:bg-[#0a192f]"
+      className="border-b border-[#ddd] px-4 py-28 md:px-8 dark:border-[#0a192f] dark:bg-[#0a192f]"
     >
-      <div className="container mb-2 text-center md:mb-10" data-aos="fade-up">
-        <span className="subheading">Explore My</span>
-        <h2 className="heading-secondary">Skills</h2>
-      </div>
-      <div className="container grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-4 lg:gap-6">
-        <div className="flex items-center justify-center">
-          {isDarkMode ? (
-            <Lottie
-              animationData={animationDataDark}
-              loop={true}
-              className="w-full sm:w-[90%] md:w-full"
-              data-aos="zoom-in-right"
-            />
-          ) : (
-            <Lottie
-              animationData={animationData}
-              loop={true}
-              className="w-full sm:w-[90%] md:w-full"
-              data-aos="fade-right"
-            />
-          )}
+      <div className="mx-auto max-w-5xl" data-aos="fade-up">
+        <div className="mb-12 text-center">
+          <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+            Explore My
+          </span>
+          <h2 className="mb-8 mt-2 text-4xl font-bold dark:text-white">
+            My Skills
+          </h2>
         </div>
-
-        <ul
-          className="grid list-none items-center justify-items-center gap-y-4 max-[320px]:grid-cols-2 min-[320px]:grid-cols-3 min-[320px]:gap-y-8  min-[500px]:grid-cols-4 sm:grid-cols-5 sm:gap-y-10 md:grid-cols-4 md:gap-y-2 lg:grid-cols-4 lg:gap-y-6"
-          data-aos="fade-left"
-        >
-          {skills.map((skill) => (
-            <li
-              key={skill.label}
-              className="flex w-20 flex-col items-center justify-center gap-3 transition-all duration-300 md:py-2.5"
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className={`z-20 flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:shadow-xl ${skill.hoverShadowColor} ${skill.hoverBgColor} ${skill.hoverBorderColor} duration-300 ease-in-out dark:border-[#112240] dark:bg-[#112240]`}
             >
-              <img src={skill.icon} alt={skill.label} className="h-12 w-12" />
-              <span className="font-medium">{skill.label}</span>
-            </li>
+              <img
+                src={skill.logo}
+                alt={skill.label}
+                className={`mb-2 h-10 w-10 ${skill.darkLogo ? "dark:brightness-0 dark:invert" : ""}`}
+              />
+              <span
+                className={`text-sm font-medium text-gray-800 dark:text-white`}
+              >
+                {skill.label}
+              </span>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
 }
-
-export default Skills;

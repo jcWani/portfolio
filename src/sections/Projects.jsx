@@ -1,163 +1,88 @@
-import {
-  wayfarersRestImg,
-  crustAndCraftImg,
-  travelSnapImg,
-  wayfarersRestWebsiteImg,
-  paystationImg,
-  mathrunImg,
-} from "../assets/images";
+import { IoOpenOutline, IoLogoGithub } from "react-icons/io5";
+import { projects } from "../constants";
+import { Button } from "../ui/Button";
+import { useAOS } from "../hooks/useAos";
 
-import ProjectDetailsBox from "../ui/ProjectDetailsBox";
-import ProjectImgBox from "../ui/ProjectImgBox";
+export default function Projects() {
+  const { AOS } = useAOS();
 
-function Projects() {
   return (
     <section
-      className="border-b border-[#ddd] py-28 dark:border-[#112240] dark:bg-[#112240]"
       id="projects"
+      className="border-b border-[#ddd] px-4 py-28 md:px-8 dark:border-[#0a192f] dark:bg-[#0a192f]"
     >
-      <div className="container" data-aos="fade-right">
-        <span className="subheading">Browse My Recent</span>
-        <h2 className="heading-secondary md:mb-4 lg:mb-10 xl:mb-16">
-          Projects
-        </h2>
-      </div>
+      <div className="mx-auto max-w-8xl">
+        {/* Header */}
+        <div className="mb-24" data-aos="fade-right">
+          <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+            Browse my
+          </span>
+          <h2 className="mb-8 mt-2 text-4xl font-bold dark:text-white">
+            Projects
+          </h2>
+        </div>
 
-      <div className="container grid grid-cols-1 items-center  gap-y-14 lg:grid-cols-2 lg:gap-x-14 lg:gap-y-16 xl:gap-x-20 xl:gap-y-20">
-        {/* WAYFARERS REST WEBSITE */}
-        <ProjectImgBox
-          img={wayfarersRestWebsiteImg}
-          label="Wayfarers Rest Website"
-          order="lg:order-1"
-        />
-        <ProjectDetailsBox
-          num="01"
-          label="Wayfarers Rest Website"
-          hrefDemo="https://wayfarers-rest-website.vercel.app/"
-          hrefGithub="https://github.com/jcWani/wayfarers-rest-website"
-          tags={[
-            { label: "react", color: "bg-[#61DBFB]" },
-            { label: "next.js", color: "bg-[#D32F2F]" },
-            { label: "tailwind", color: "bg-[#38bdf8]" },
-            { label: "supabase", color: "bg-[#00C853]" },
-          ]}
-          order="lg:order-2"
-        >
-          Welcome to Wayfarers Rest, a web application built to offer users an
-          immersive and peaceful online experience. Developed using React and
-          Next.js this web app for the clients. It provides users with the
-          ability to browse rooms, make bookings, manage their reservations, and
-          interact with the Wayfarers Rest&apos;s services.
-        </ProjectDetailsBox>
+        {/* Projects */}
+        <div className="space-y-24 md:space-y-32">
+          {projects.map((project) => (
+            <div
+              data-aos="fade-up"
+              key={project.id}
+              className={`flex flex-col items-center gap-12 ${
+                project.imagePosition === "right"
+                  ? "lg:flex-row-reverse"
+                  : "lg:flex-row"
+              }`}
+            >
+              <div className="z-20 flex-1">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-auto w-full rounded-lg shadow-2xl"
+                />
+              </div>
+              <div className="flex-1 space-y-4">
+                <span className="text-7xl font-bold text-gray-200 md:text-8xl dark:text-primary-lighter">
+                  {project.id}
+                </span>
+                <h3 className="text-3xl font-bold leading-tight md:text-4xl dark:text-gray-300">
+                  {project.title}
+                </h3>
 
-        {/* WAYFARERS REST */}
-        <ProjectImgBox
-          img={wayfarersRestImg}
-          label="Wayfarers Rest"
-          order="lg:order-4"
-        />
-        <ProjectDetailsBox
-          num="02"
-          label="Wayfarers Rest"
-          hrefDemo="https://wayfarers-rest.vercel.app/"
-          hrefGithub="https://github.com/jcWani/wayfarers-rest"
-          tags={[{ label: "react", color: "bg-[#61DBFB]" }]}
-          order="lg:order-3"
-        >
-          Wayfarers Rest is an hotel management web application. Developed using
-          react, this web app designed for the employees of Wayfarers Rest. It
-          allows them to manage the operations such as booking management,
-          customer information, room availability, and other administrative
-          tasks.
-        </ProjectDetailsBox>
+                <div className="flex items-center gap-2">
+                  {project.tags &&
+                    project.tags.map((tag) => (
+                      <div key={tag.label}>
+                        <span
+                          className={`${tag.color} inline-block rounded-full px-2 py-1 text-xs font-medium uppercase tracking-wide`}
+                        >
+                          {tag.label}
+                        </span>
+                      </div>
+                    ))}
+                </div>
 
-        {/* CRUST & CRAFT */}
-        <ProjectImgBox
-          img={crustAndCraftImg}
-          label="Crust & Craft"
-          order="lg:order-5"
-        />
-        <ProjectDetailsBox
-          num="03"
-          label="Crust & Craft"
-          hrefDemo="https://crust-and-craft.vercel.app/"
-          hrefGithub="https://github.com/jcWani/crust-and-craft"
-          tags={[
-            { label: "react", color: "bg-[#61DBFB]" },
-            { label: "tailwind", color: "bg-[#38bdf8]" },
-          ]}
-          order="lg:order-6"
-        >
-          The Crust & Craft web app is a simple tool for ordering pizza. It
-          comes with handy features to make your pizza experience smooth and
-          enjoyable.
-        </ProjectDetailsBox>
+                <p className="leading-relaxed text-gray-700 dark:text-gray-400">
+                  {project.description}
+                </p>
 
-        {/* TRAVEL SNAP */}
-        <ProjectImgBox
-          img={travelSnapImg}
-          label="TravelSnap"
-          order="lg:order-8"
-        />
-        <ProjectDetailsBox
-          num="04"
-          label="TravelSnap"
-          hrefDemo="https://travelsnap.vercel.app/"
-          hrefGithub="https://github.com/jcWani/travelsnap"
-          tags={[{ label: "react", color: "bg-[#61DBFB]" }]}
-          order="lg:order-7"
-        >
-          Your travel diary application for documenting your adventures around
-          the world. With Travelsnap, you can effortlessly save the places
-          you&apos;ve traveled to, ensuring that your cherished memories are
-          always just a tap away.
-        </ProjectDetailsBox>
-
-        {/* PAYSTATION */}
-        <ProjectImgBox
-          img={paystationImg}
-          label="Paystation"
-          order="lg:order-9"
-        />
-        <ProjectDetailsBox
-          num="05"
-          label="Paystation"
-          hrefDemo="https://jcwani.github.io/paystation/"
-          hrefGithub="https://github.com/jcWani/paystation"
-          tags={[
-            { label: "html", color: "bg-[#FF7043]" },
-            { label: "css", color: "bg-[#29B6F6]" },
-            { label: "javascript", color: "bg-[#FFCC00]" },
-          ]}
-          order="lg:order-10"
-        >
-          Paystation is a fictional company offering games and a subscription
-          service. The landing page is designed to showcase Paystation&apos;s
-          products and services while providing an engaging and interactive user
-          experience.
-        </ProjectDetailsBox>
-
-        {/* MATHRUN */}
-        <ProjectImgBox img={mathrunImg} label="Mathrun" order="lg:order-12" />
-        <ProjectDetailsBox
-          num="06"
-          label="Mathrun"
-          hrefDemo="https://jmswani.itch.io/mathrun"
-          hrefGithub="https://github.com/jcWani/Mathrun"
-          tags={[{ label: "unity", color: "bg-[#D5AAFF]" }]}
-          order="lg:order-11"
-        >
-          Mathrun is an endless runner android game. The concept of the game
-          revolves around the player avoiding obstacles for as long as he can
-          while collecting coins and powerups. As the player collect coins it
-          will fill up a bar and once it is full a question about vector
-          operations will appear. Providing a right answer will give the player
-          a bonus score in the game. Test you reflexes and math skills, and set
-          the highest score.
-        </ProjectDetailsBox>
+                <div className="flex items-center gap-2">
+                  <Button icon={<IoOpenOutline />} href={project.hrefDemo}>
+                    Demo
+                  </Button>
+                  <Button
+                    icon={<IoLogoGithub />}
+                    href={project.hrefGithub}
+                    color="secondary"
+                  >
+                    Github
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-export default Projects;
