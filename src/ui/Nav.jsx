@@ -59,14 +59,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex">
+          <div className="flex gap-2">
             <DarkModeToggle />
 
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-primary focus:outline-none dark:text-gray-300"
+                className="inline-flex items-center justify-center rounded-md py-2 text-gray-700 hover:text-primary focus:outline-none dark:text-gray-300"
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
@@ -106,43 +106,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// function Nav() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const { AOS } = useAOS();
-
-//   function handleIsOpen() {
-//     setIsOpen((open) => !open);
-//   }
-
-//   return (
-//     <header className="relative flex items-center justify-between px-4 py-6 md:px-12">
-//       <a
-//         href="#"
-//         className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-extrabold tracking-wide text-transparent focus:outline focus:outline-2 focus:outline-primary/70 focus:ring-0 dark:text-primary dark:focus:outline-primary/60"
-//       >
-//         JW
-//       </a>
-
-//       <nav className="flex items-center justify-between">
-//         <ul className="hidden items-center gap-8 md:flex lg:text-lg">
-//           {navLinks.map((link) => (
-//             <li key={link.label} onClick={handleIsOpen}>
-//               <a
-//                 href={link.href}
-//                 className="text-gray-700 transition-all duration-300 hover:text-primary"
-//               >
-//                 {link.label}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </nav>
-
-//       <div className="flex items-center gap-4">
-//         <DarkModeToggle />
-//         <Hamburger isOpen={isOpen} handleIsOpen={handleIsOpen} />
-//       </div>
-//     </header>
-//   );
-// }

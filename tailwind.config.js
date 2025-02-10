@@ -30,6 +30,11 @@ export default {
 
       maxWidth: {
         "8xl": "88rem",
+        xxs: "10rem",
+      },
+
+      screens: {
+        xs: "22rem",
       },
     },
   },

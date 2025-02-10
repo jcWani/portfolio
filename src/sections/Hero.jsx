@@ -55,11 +55,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative z-20" data-aos="fade-left">
+        <div className="z-20" data-aos="fade-left">
           <img
             src={heroImg}
             alt="hero image"
-            className="border-animated max-w-sm lg:max-w-full"
+            className="border-animated max-w-64 sm:max-w-sm lg:max-w-full"
           />
         </div>
 

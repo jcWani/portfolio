@@ -14,7 +14,7 @@ function App() {
       <header>
         <Nav />
       </header>
-      <main className="relative">
+      <main>
         <Hero />
         <Skills />
         <AboutMe />
