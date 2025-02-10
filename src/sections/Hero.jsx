@@ -48,6 +48,7 @@ export default function Hero() {
               className="tracking-wide lg:gap-3 lg:px-6 lg:py-3 lg:text-lg"
               href="#contact"
               color="secondary"
+              target={false}
             >
               Contacts
             </Button>

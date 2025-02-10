@@ -9,6 +9,7 @@ export function Button({
   fullWidth,
   children,
   href,
+  target = true,
 }) {
   // Base styles that are always applied
   const baseStyles =
@@ -40,7 +41,7 @@ export function Button({
         className={`${baseStyles} ${variantStyles[variant][color]} ${sizeStyles[size]} ${widthStyles} ${className}`}
         href={href}
         rel="noreferrer"
-        target="_blank"
+        target={target ? "_blank" : "_self"}
       >
         {icon && icon}
         <span>{children}</span>
