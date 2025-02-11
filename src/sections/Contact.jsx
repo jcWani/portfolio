@@ -23,7 +23,7 @@ export default function Contact() {
           <div className="relative rounded-2xl border border-gray-100 bg-white p-4 shadow-xl sm:p-8 dark:border-[#112240]/90 dark:bg-[#112240]">
             <div className="grid items-center gap-8">
               {/* Main Contact */}
-              <div className="flex flex-col gap-6 min-[520px]:flex-row">
+              <div className="min-[520px]:flex-row flex flex-col gap-6">
                 {contacts.map((contact) => (
                   <a
                     key={contact.link}
